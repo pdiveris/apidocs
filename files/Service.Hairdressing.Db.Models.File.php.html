@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="https://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+        <script type="text/javascript">
+        function loadExternalCodeSnippets() {
+            Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+                var src = pre.getAttribute('data-src');
+                var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+                var language = 'php';
+
+                var code = document.createElement('code');
+                code.className = 'language-' + language;
+
+                pre.textContent = '';
+
+                code.textContent = 'Loading…';
+
+                pre.appendChild(code);
+
+                var xhr = new XMLHttpRequest();
+
+                xhr.open('GET', src, true);
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4) {
+
+                        if (xhr.status < 400 && xhr.responseText) {
+                            code.textContent = xhr.responseText;
+
+                            Prism.highlightElement(code);
+                        }
+                        else if (xhr.status >= 400) {
+                            code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                        }
+                        else {
+                            code.textContent = '✖ Error: File does not exist or is empty';
+                        }
+                    }
+                };
+
+                xhr.send(null);
+            });
+        }
+
+        $(document).ready(function(){
+            loadExternalCodeSnippets();
+        });
+        $('#source-view').on('shown', function () {
+            loadExternalCodeSnippets();
+        })
+    </script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/MIMAS.html">\MIMAS</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">16</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1960543668"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-1960543668" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1762582783"></a>
+                                <a href="../namespaces/MIMAS.html" style="margin-left: 30px; padding-left: 0">MIMAS</a>
+            </div>
+            <div id="namespace-1762582783" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-953961597"></a>
+                                <a href="../namespaces/MIMAS.Schemas.html" style="margin-left: 30px; padding-left: 0">Schemas</a>
+            </div>
+            <div id="namespace-953961597" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-212587071"></a>
+                                <a href="../namespaces/MIMAS.Schemas.DublinCore.html" style="margin-left: 30px; padding-left: 0">DublinCore</a>
+            </div>
+            <div id="namespace-212587071" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Schemas.DublinCore.Core.html">Core</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Schemas.DublinCore.Elements.html">Elements</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Schemas.DublinCore.Terms.html">Terms</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-102338964"></a>
+                                <a href="../namespaces/MIMAS.Service.html" style="margin-left: 30px; padding-left: 0">Service</a>
+            </div>
+            <div id="namespace-102338964" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1407214687"></a>
+                                <a href="../namespaces/MIMAS.Service.Hairdressing.html" style="margin-left: 30px; padding-left: 0">Hairdressing</a>
+            </div>
+            <div id="namespace-1407214687" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1345695007"></a>
+                                <a href="../namespaces/MIMAS.Service.Hairdressing.Db.html" style="margin-left: 30px; padding-left: 0">Db</a>
+            </div>
+            <div id="namespace-1345695007" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1688029903"></a>
+                                <a href="../namespaces/MIMAS.Service.Hairdressing.Db.Models.html" style="margin-left: 30px; padding-left: 0">Models</a>
+            </div>
+            <div id="namespace-1688029903" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.ContentTypePage.html">ContentTypePage</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.ContentTypeStep.html">ContentTypeStep</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.File.html">File</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.MenuLink.html">MenuLink</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.Node.html">Node</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.NodeRevision.html">NodeRevision</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.NodeType.html">NodeType</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.PrevNextNode.html">PrevNextNode</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.TermData.html">TermData</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.TermHierarchy.html">TermHierarchy</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.TermNode.html">TermNode</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.Vocabulary.html">Vocabulary</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.VocabularyNodeType.html">VocabularyNodeType</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html">JorumDbModel</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Collection.html">Collection</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Community.html">Community</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.DrupalApi.html">DrupalApi</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Item.html">Item</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Metadata.html">Metadata</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-175417994"></a>
+                                <a href="../namespaces/MIMAS.Service.Jorum.html" style="margin-left: 30px; padding-left: 0">Jorum</a>
+            </div>
+            <div id="namespace-175417994" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-564924985"></a>
+                                <a href="../namespaces/MIMAS.Service.Jorum.Formatters.html" style="margin-left: 30px; padding-left: 0">Formatters</a>
+            </div>
+            <div id="namespace-564924985" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.Formatters.Html.html">Html</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.Bitstream.html">Bitstream</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.Collection.html">Collection</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.Community.html">Community</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.Context.html">Context</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.DataCollection.html">DataCollection</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.DataCollection.html">DataCollection</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.Item.html">Item</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.ItemList.html">ItemList</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.JorumApi.html">JorumApi</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.JorumModel.html">JorumModel</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.Metadata.html">Metadata</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/MIMAS.Service.RepositoryInterface.html">RepositoryInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Service.Context.html">Context</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.DataCollection.html">DataCollection</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.JorumModel.html">JorumModel</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1109503502"></a>
+                                <a href="../namespaces/MIMAS.XmlSerialization.html" style="margin-left: 30px; padding-left: 0">XmlSerialization</a>
+            </div>
+            <div id="namespace-1109503502" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1703249871"></a>
+                                <a href="../namespaces/MIMAS.XmlSerialization.Tests.html" style="margin-left: 30px; padding-left: 0">Tests</a>
+            </div>
+            <div id="namespace-1703249871" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.AnnotationTests.html">AnnotationTests</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.ClassMetaStoreTests.html">ClassMetaStoreTests</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.ClassMetaTests.html">ClassMetaTests</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample1.html">Sample1</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample10.html">Sample10</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample10_Granny.html">Sample10_Granny</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample10_Parent.html">Sample10_Parent</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample2.html">Sample2</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample3.html">Sample3</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample4.html">Sample4</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample5.html">Sample5</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample6.html">Sample6</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample7.html">Sample7</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample8.html">Sample8</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample9.html">Sample9</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.XmlSerializerTests.html">XmlSerializerTests</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Annotation.html">Annotation</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.ClassMeta.html">ClassMeta</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.ClassMetaStore.html">ClassMetaStore</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.SchemaGenerator.html">SchemaGenerator</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.XmlSerializer.html">XmlSerializer</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Collection.html">Collection</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Debug.html">Debug</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Helpers.html">Helpers</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content file">
+                    <nav>
+                                                                    </nav>
+
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+                    <h1><small>Service/Hairdressing/Db/Models</small>File.php</h1>
+                    <p><em>HT API File</em></p>
+                    <p>Drupal 6.x File</p>
+<p>This model deals with the various uploaded files in Drupal 6.x</p>
+
+                    
+                    
+                                        <h2>Classes</h2>
+                    <table class="table table-hover">
+                                            <tr>
+                            <td><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.File.html">File</a></td>
+                            <td><em>Class File
+This models the files table as defined in Drupal 6.x</em></td>
+                        </tr>
+                                        </table>
+                                    </div>
+
+                <aside class="span4 detailsbar">
+                    <dl>
+                                                    <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">\MIMAS\Service</div></dd>
+                        
+                        
+                    </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                                    <tr>
+                                <th>
+                                    category
+                                </th>
+                                <td>
+                                                                            <p>API</p>
+                                                                    </td>
+                            </tr>
+                                                    <tr>
+                                <th>
+                                    version
+                                </th>
+                                <td>
+                                                                            
+                                                                    </td>
+                            </tr>
+                                                    <tr>
+                                <th>
+                                    author
+                                </th>
+                                <td>
+                                                                            <p>Petros Diveris <a href="mailto:petros.diveris@manchester.ac.uk">petros.diveris@manchester.ac.uk</a></p>
+                                                                    </td>
+                            </tr>
+                                            </table>
+
+                </aside>
+            </div>
+
+            
+            
+        </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label"></h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/Service/Hairdressing/Db/Models/File.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/MIMAS.html">\MIMAS</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on June 30th, 2014 at 16:01.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

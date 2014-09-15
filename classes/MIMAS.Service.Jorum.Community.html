@@ -1,0 +1,3298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="https://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/MIMAS.html">\MIMAS</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">16</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1207628852"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-1207628852" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-566175675"></a>
+                                <a href="../namespaces/MIMAS.html" style="margin-left: 30px; padding-left: 0">MIMAS</a>
+            </div>
+            <div id="namespace-566175675" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1751951552"></a>
+                                <a href="../namespaces/MIMAS.Schemas.html" style="margin-left: 30px; padding-left: 0">Schemas</a>
+            </div>
+            <div id="namespace-1751951552" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-193809455"></a>
+                                <a href="../namespaces/MIMAS.Schemas.DublinCore.html" style="margin-left: 30px; padding-left: 0">DublinCore</a>
+            </div>
+            <div id="namespace-193809455" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Schemas.DublinCore.Core.html">Core</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Schemas.DublinCore.Elements.html">Elements</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Schemas.DublinCore.Terms.html">Terms</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1345788753"></a>
+                                <a href="../namespaces/MIMAS.Service.html" style="margin-left: 30px; padding-left: 0">Service</a>
+            </div>
+            <div id="namespace-1345788753" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1839437779"></a>
+                                <a href="../namespaces/MIMAS.Service.Hairdressing.html" style="margin-left: 30px; padding-left: 0">Hairdressing</a>
+            </div>
+            <div id="namespace-1839437779" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1423314830"></a>
+                                <a href="../namespaces/MIMAS.Service.Hairdressing.Db.html" style="margin-left: 30px; padding-left: 0">Db</a>
+            </div>
+            <div id="namespace-1423314830" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1272949783"></a>
+                                <a href="../namespaces/MIMAS.Service.Hairdressing.Db.Models.html" style="margin-left: 30px; padding-left: 0">Models</a>
+            </div>
+            <div id="namespace-1272949783" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.ContentTypePage.html">ContentTypePage</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.ContentTypeStep.html">ContentTypeStep</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.File.html">File</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.MenuLink.html">MenuLink</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.Node.html">Node</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.NodeRevision.html">NodeRevision</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.NodeType.html">NodeType</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.PrevNextNode.html">PrevNextNode</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.TermData.html">TermData</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.TermHierarchy.html">TermHierarchy</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.TermNode.html">TermNode</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.Vocabulary.html">Vocabulary</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.VocabularyNodeType.html">VocabularyNodeType</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html">JorumDbModel</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Collection.html">Collection</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Community.html">Community</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.DrupalApi.html">DrupalApi</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Item.html">Item</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Metadata.html">Metadata</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-49343963"></a>
+                                <a href="../namespaces/MIMAS.Service.Jorum.html" style="margin-left: 30px; padding-left: 0">Jorum</a>
+            </div>
+            <div id="namespace-49343963" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-783458809"></a>
+                                <a href="../namespaces/MIMAS.Service.Jorum.Formatters.html" style="margin-left: 30px; padding-left: 0">Formatters</a>
+            </div>
+            <div id="namespace-783458809" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.Formatters.Html.html">Html</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.Bitstream.html">Bitstream</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.Collection.html">Collection</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.Community.html">Community</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.Context.html">Context</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.DataCollection.html">DataCollection</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.DataCollection.html">DataCollection</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.Item.html">Item</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.ItemList.html">ItemList</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.JorumApi.html">JorumApi</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.JorumModel.html">JorumModel</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.Metadata.html">Metadata</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/MIMAS.Service.RepositoryInterface.html">RepositoryInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Service.Context.html">Context</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.DataCollection.html">DataCollection</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.JorumModel.html">JorumModel</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1229877053"></a>
+                                <a href="../namespaces/MIMAS.XmlSerialization.html" style="margin-left: 30px; padding-left: 0">XmlSerialization</a>
+            </div>
+            <div id="namespace-1229877053" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-303889036"></a>
+                                <a href="../namespaces/MIMAS.XmlSerialization.Tests.html" style="margin-left: 30px; padding-left: 0">Tests</a>
+            </div>
+            <div id="namespace-303889036" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.AnnotationTests.html">AnnotationTests</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.ClassMetaStoreTests.html">ClassMetaStoreTests</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.ClassMetaTests.html">ClassMetaTests</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample1.html">Sample1</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample10.html">Sample10</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample10_Granny.html">Sample10_Granny</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample10_Parent.html">Sample10_Parent</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample2.html">Sample2</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample3.html">Sample3</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample4.html">Sample4</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample5.html">Sample5</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample6.html">Sample6</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample7.html">Sample7</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample8.html">Sample8</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample9.html">Sample9</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.XmlSerializerTests.html">XmlSerializerTests</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Annotation.html">Annotation</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.ClassMeta.html">ClassMeta</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.ClassMetaStore.html">ClassMetaStore</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.SchemaGenerator.html">SchemaGenerator</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.XmlSerializer.html">XmlSerializer</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Collection.html">Collection</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Debug.html">Debug</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Helpers.html">Helpers</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/MIMAS.Service.Jorum.html">\MIMAS\Service\Jorum</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\MIMAS\Service\Jorum</small>Community</h1>
+                    <p><em>Created by PhpStorm.</em></p>
+                    <p>User: pedro
+Date: 25/04/2014
+Time: 14:59</p>
+
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#method___construct" class="">__construct()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.JorumApi.html#method_factory" class="">factory()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.JorumApi.html#method_apiCall" class="">apiCall()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.JorumApi.html#method_setCached" class="">setCached()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.JorumApi.html#method_getServicePoint" class="">getServicePoint()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.JorumApi.html#method_setServicePoint" class="">setServicePoint()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.JorumApi.html#method_getModel" class="">getModel()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.JorumApi.html#method_setModel" class="">setModel()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.JorumApi.html#method_getRawData" class="">getRawData()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.JorumApi.html#method_setRawData" class="">setRawData()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.JorumApi.html#method_getData" class="">getData()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.JorumApi.html#method_setData" class="">setData()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.JorumApi.html#method___call" class="">__call()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.JorumApi.html#method_findByIdOrHandle" class="">findByIdOrHandle()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.JorumApi.html#method_all" class="">all()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.JorumApi.html#method_jsonSerialize" class="">jsonSerialize()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.JorumApi.html#method_getIterator" class="">getIterator()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.JorumApi.html#method_toHtml" class="">toHtml()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#method_getId" class="">getId()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#method_setId" class="">setId()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#method_getHandle" class="">getHandle()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#method_setHandle" class="">setHandle()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#method_getName" class="">getName()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#method_setName" class="">setName()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#method_getType" class="">getType()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#method_setType" class="">setType()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#method_getLink" class="">getLink()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#method_setLink" class="">setLink()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#method_getExpand" class="">getExpand()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#method_setExpanded" class="">setExpanded()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#method_getLogo" class="">getLogo()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#method_setLogo" class="">setLogo()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#method_getParentCommunity" class="">getParentCommunity()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#method_setParentCommunity" class="">setParentCommunity()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#method_getCopyrightText" class="">getCopyrightText()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#method_setCopyrightText" class="">setCopyrightText()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#method_getIntroductoryText" class="">getIntroductoryText()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#method_setIntroductoryText" class="">setIntroductoryText()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#method_getShortDescription" class="">getShortDescription()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#method_setShortDescription" class="">setShortDescription()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#method_getSidebarText" class="">getSidebarText()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#method_setSidebarText" class="">setSidebarText()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#method_getCountItems" class="">getCountItems()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#method_setCountItems" class="">setCountItems()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#method_getCollections" class="">getCollections()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#method_setCollections" class="">setCollections()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#method_getSubCommunities" class="">getSubCommunities()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#method_setSubCommunities" class="">setSubCommunities()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#method_find" class="">find()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/MIMAS.Service.Jorum.JorumApi.html#property_apiUrl" class="">$apiUrl</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.JorumApi.html#property_servicePoint" class="">$servicePoint</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.JorumApi.html#property_model" class="">$model</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#property_id" class="">$id</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#property_handle" class="">$handle</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#property_name" class="">$name</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#property_type" class="">$type</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#property_link" class="">$link</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#property_expand" class="">$expand</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#property_logo" class="">$logo</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#property_parentCommunity" class="">$parentCommunity</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#property_copyrightText" class="">$copyrightText</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#property_introductoryText" class="">$introductoryText</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#property_shortDescription" class="">$shortDescription</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#property_sidebarText" class="">$sidebarText</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#property_countItems" class="">$countItems</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#property_collections" class="">$collections</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.Community.html#property_subCommunities" class="">$subCommunities</a><br />
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/MIMAS.Service.Jorum.JorumApi.html#property_serviceParams" class="">$serviceParams</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.JorumApi.html#property_cached" class="">$cached</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.JorumApi.html#property_httpAccept" class="">$httpAccept</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.JorumApi.html#property_outputFormat" class="">$outputFormat</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.JorumApi.html#property_rawData" class="">$rawData</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Jorum.JorumApi.html#property_data" class="">$data</a><br />
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/Service.Jorum.Community.php.html"><div class="path-wrapper">Service/Jorum/Community.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper"></div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                                                                                                                                                
+                                        <div class="namespace-wrapper"><a href="../classes/MIMAS.Service.Jorum.JorumApi.html">\MIMAS\Service\Jorum\JorumApi</a></div>
+                                                                                                    <div class="namespace-wrapper">\MIMAS\Service\Jorum\Community</div>
+                            </dd>
+
+                        
+                        
+                        
+                        
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr>
+                            <th>
+                                todo
+                            </th>
+                            <td>
+                                                            </td>
+                        </tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                                    <a id="properties" name="properties"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Properties</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_apiUrl" name="property_apiUrl" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$apiUrl</h3>
+                <pre class="signature">$apiUrl : string</pre>
+                <p><em>The API access URL.</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                &mdash; apiUrl                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Jorum.JorumApi.html"><div class="path-wrapper">\MIMAS\Service\Jorum\JorumApi</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                            <p>testing todos</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_servicePoint" name="property_servicePoint" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$servicePoint</h3>
+                <pre class="signature">$servicePoint : string</pre>
+                <p><em>The URI specific to the service i.e. /items, /collections etc.</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                &mdash; servicePoint                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Jorum.JorumApi.html"><div class="path-wrapper">\MIMAS\Service\Jorum\JorumApi</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_model" name="property_model" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$model</h3>
+                <pre class="signature">$model : string</pre>
+                <p><em>The model name e.g. &#039;Item&#039;.</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Jorum.JorumApi.html"><div class="path-wrapper">\MIMAS\Service\Jorum\JorumApi</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_id" name="property_id" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$id</h3>
+                <pre class="signature">$id : string</pre>
+                <p><em>Id</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_handle" name="property_handle" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$handle</h3>
+                <pre class="signature">$handle : string</pre>
+                <p><em>handle</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_name" name="property_name" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$name</h3>
+                <pre class="signature">$name : string</pre>
+                <p><em>name</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_type" name="property_type" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$type</h3>
+                <pre class="signature">$type : string</pre>
+                <p><em>type</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_link" name="property_link" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$link</h3>
+                <pre class="signature">$link : string</pre>
+                <p><em>link</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_expand" name="property_expand" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$expand</h3>
+                <pre class="signature">$expand : array</pre>
+                <p><em>Expand array (e.g. metadata, all)</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_logo" name="property_logo" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$logo</h3>
+                <pre class="signature">$logo : string</pre>
+                <p><em>logo</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_parentCommunity" name="property_parentCommunity" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$parentCommunity</h3>
+                <pre class="signature">$parentCommunity : array</pre>
+                <p><em>parentCommunity</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_copyrightText" name="property_copyrightText" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$copyrightText</h3>
+                <pre class="signature">$copyrightText : string</pre>
+                <p><em>copyrightText</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_introductoryText" name="property_introductoryText" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$introductoryText</h3>
+                <pre class="signature">$introductoryText : string</pre>
+                <p><em>introductoryText</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_shortDescription" name="property_shortDescription" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$shortDescription</h3>
+                <pre class="signature">$shortDescription : string</pre>
+                <p><em>shortDescription</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_sidebarText" name="property_sidebarText" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$sidebarText</h3>
+                <pre class="signature">$sidebarText : string</pre>
+                <p><em>sidebarText</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_countItems" name="property_countItems" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$countItems</h3>
+                <pre class="signature">$countItems : int</pre>
+                <p><em>countItems</em></p>
+                
+
+                                <h4>Type</h4>
+                int
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_collections" name="property_collections" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$collections</h3>
+                <pre class="signature">$collections : array</pre>
+                <p><em>collections</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_subCommunities" name="property_subCommunities" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$subCommunities</h3>
+                <pre class="signature">$subCommunities : array</pre>
+                <p><em>subCommunities</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_serviceParams" name="property_serviceParams" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$serviceParams</h3>
+                <pre class="signature">$serviceParams : mixed</pre>
+                <p><em>Parameters specific to the service, e.g. search patterns and keys for /search.</em></p>
+                
+
+                                <h4>Type</h4>
+                mixed
+                &mdash; serviceParams                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Jorum.JorumApi.html"><div class="path-wrapper">\MIMAS\Service\Jorum\JorumApi</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_cached" name="property_cached" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$cached</h3>
+                <pre class="signature">$cached : bool</pre>
+                <p><em>Boolean cached. Whether is cached or not.</em></p>
+                
+
+                                <h4>Type</h4>
+                bool
+                &mdash; cached                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Jorum.JorumApi.html"><div class="path-wrapper">\MIMAS\Service\Jorum\JorumApi</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_httpAccept" name="property_httpAccept" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$httpAccept</h3>
+                <pre class="signature">$httpAccept : string</pre>
+                <p><em>Mime type of requested content e.g. application/xml.</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Jorum.JorumApi.html"><div class="path-wrapper">\MIMAS\Service\Jorum\JorumApi</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_outputFormat" name="property_outputFormat" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$outputFormat</h3>
+                <pre class="signature">$outputFormat : string</pre>
+                <p><em>Output format e.g. xml.</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Jorum.JorumApi.html"><div class="path-wrapper">\MIMAS\Service\Jorum\JorumApi</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_rawData" name="property_rawData" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$rawData</h3>
+                <pre class="signature">$rawData : string</pre>
+                <p><em>Raw data buffer for whatever we got back.</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Jorum.JorumApi.html"><div class="path-wrapper">\MIMAS\Service\Jorum\JorumApi</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_data" name="property_data" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$data</h3>
+                <pre class="signature">$data : string</pre>
+                <p><em>Parsed data.</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Jorum.JorumApi.html"><div class="path-wrapper">\MIMAS\Service\Jorum\JorumApi</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                            
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct(string <span class="argument">$params</span>, string <span class="argument">$inputFormat</span>)</pre>
+                <p><em>Constructor. Data or format passed to Base model</em></p>
+                <p>If an associative array of data is passed such as (id=>10, 'title'=>'Booklet: St John Ambulance Association Preliminary First Aid')
+then an instance of the object will be created and populated.</p>
+<p>Alternatively, an output format can be passed here, such as json, xml, html and php, the latter for debugging</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$params </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$inputFormat </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_factory" name="method_factory" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">factory()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">factory(mixed <span class="argument">$className</span>, mixed <span class="argument">$key</span>, mixed <span class="argument">$value</span>) : array|\MIMAS\Service\Jorum\Metadata</pre>
+                <p><em>Method to instantiate a number of object instances
+and return them as an array to populate for example an ItemList
+when retrieving a list of items rather then a single one</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$className </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$key </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$value </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array|<a href="../classes/MIMAS.Service.Jorum.Metadata.html">\MIMAS\Service\Jorum\Metadata</a>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Jorum.JorumApi.html"><div class="path-wrapper">\MIMAS\Service\Jorum\JorumApi</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_apiCall" name="method_apiCall" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">apiCall()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">apiCall(mixed <span class="argument">$url</span>, string <span class="argument">$data</span>, array <span class="argument">$params</span>) : bool</pre>
+                <p><em>Perform an apiCall and return our stream
+This is essentially a cURL encapsulator
+to a Http Helper class</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$url </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$data </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$params </td>
+                                <td><p>'method'=>('GET', 'POST'), 'options'=>('expand','offset')</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\Exception</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    bool
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Jorum.JorumApi.html"><div class="path-wrapper">\MIMAS\Service\Jorum\JorumApi</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                                                            <p>Make the cache an injectable dependency so that it doesn't rely on a specific framework</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setCached" name="method_setCached" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setCached()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setCached(mixed <span class="argument">$cached</span>)</pre>
+                <p><em>Setter method for private property $cached</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$cached </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Jorum.JorumApi.html"><div class="path-wrapper">\MIMAS\Service\Jorum\JorumApi</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getServicePoint" name="method_getServicePoint" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getServicePoint()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getServicePoint() : string</pre>
+                <p><em>Getter method for private property $servicePoint</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Jorum.JorumApi.html"><div class="path-wrapper">\MIMAS\Service\Jorum\JorumApi</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setServicePoint" name="method_setServicePoint" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setServicePoint()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setServicePoint(mixed <span class="argument">$servicePoint</span>)</pre>
+                <p><em>Setter method for private property $servicePoint</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$servicePoint </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Jorum.JorumApi.html"><div class="path-wrapper">\MIMAS\Service\Jorum\JorumApi</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getModel" name="method_getModel" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getModel()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getModel() : string</pre>
+                <p><em>Getter method for private property $model
+The model is one of Item, Metadata, Community, Collection or Bitstream</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Jorum.JorumApi.html"><div class="path-wrapper">\MIMAS\Service\Jorum\JorumApi</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setModel" name="method_setModel" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setModel()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setModel(mixed <span class="argument">$model</span>)</pre>
+                <p><em>Setter method for private property $model
+The model is one of Item, Metadata, Community, Collection or Bitstream</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$model </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Jorum.JorumApi.html"><div class="path-wrapper">\MIMAS\Service\Jorum\JorumApi</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getRawData" name="method_getRawData" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getRawData()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getRawData() : string</pre>
+                <p><em>Getter for the private property $rawData which holds the data is returned from the API</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Jorum.JorumApi.html"><div class="path-wrapper">\MIMAS\Service\Jorum\JorumApi</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setRawData" name="method_setRawData" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setRawData()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setRawData(mixed <span class="argument">$data</span>)</pre>
+                <p><em>Setter for the private property $rawData which holds the data is returned from the API</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$data </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Jorum.JorumApi.html"><div class="path-wrapper">\MIMAS\Service\Jorum\JorumApi</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getData" name="method_getData" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getData()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getData() : string</pre>
+                <p><em>Getter for the private property $data which holds the converted data</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Jorum.JorumApi.html"><div class="path-wrapper">\MIMAS\Service\Jorum\JorumApi</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setData" name="method_setData" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setData()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setData(mixed <span class="argument">$data</span>)</pre>
+                <p><em>Setter for the private property $data which holds the converted data</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$data </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Jorum.JorumApi.html"><div class="path-wrapper">\MIMAS\Service\Jorum\JorumApi</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___call" name="method___call" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__call()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__call(mixed <span class="argument">$name</span>, mixed <span class="argument">$qrguments</span>)</pre>
+                <p><em>Magic PHP function, gets called when a method cannot be resolved
+This is a stub and should go but it&#039;s currently used for testing purposes</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$name </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$qrguments </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Jorum.JorumApi.html"><div class="path-wrapper">\MIMAS\Service\Jorum\JorumApi</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_findByIdOrHandle" name="method_findByIdOrHandle" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">findByIdOrHandle()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">findByIdOrHandle(string <span class="argument">$id</span>, array <span class="argument">$options</span>) : mixed</pre>
+                <p><em>Method to retrieve a Jorum item by id OR handle</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$options </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    mixed
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Jorum.JorumApi.html"><div class="path-wrapper">\MIMAS\Service\Jorum\JorumApi</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_all" name="method_all" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">all()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">all() : \MIMAS\Service\Jorum\DataCollection</pre>
+                <p><em>Fetch a list of stuff such as Items or Collections
+Used the data to populate a collection
+Later to add a Context</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/MIMAS.Service.Jorum.DataCollection.html">\MIMAS\Service\Jorum\DataCollection</a>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Jorum.JorumApi.html"><div class="path-wrapper">\MIMAS\Service\Jorum\JorumApi</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_jsonSerialize" name="method_jsonSerialize" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">jsonSerialize()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">jsonSerialize() : array|mixed</pre>
+                <p><em>Return a JSON serialized instance of self/this</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array|mixed
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Jorum.JorumApi.html"><div class="path-wrapper">\MIMAS\Service\Jorum\JorumApi</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getIterator" name="method_getIterator" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getIterator()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getIterator() : \RecursiveDirectoryIterator</pre>
+                <p><em>getIterator</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    \RecursiveDirectoryIterator
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Jorum.JorumApi.html"><div class="path-wrapper">\MIMAS\Service\Jorum\JorumApi</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_toHtml" name="method_toHtml" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">toHtml()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">toHtml()</pre>
+                <p><em>Write out as HTML</em></p>
+                
+
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Jorum.JorumApi.html"><div class="path-wrapper">\MIMAS\Service\Jorum\JorumApi</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                                                            <p>return a string instead and echo elsewhere</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getId" name="method_getId" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getId()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getId() : string</pre>
+                <p><em>Get Id</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>id</p>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setId" name="method_setId" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setId()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setId(string <span class="argument">$id</span>)</pre>
+                <p><em>Set the Id</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getHandle" name="method_getHandle" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getHandle()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getHandle() : string</pre>
+                <p><em>Get handle</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>handle</p>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setHandle" name="method_setHandle" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setHandle()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setHandle(string <span class="argument">$handle</span>)</pre>
+                <p><em>Set handle</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$handle </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getName" name="method_getName" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getName()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getName() : string</pre>
+                <p><em>Get name</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>name</p>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setName" name="method_setName" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setName()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setName(string <span class="argument">$name</span>)</pre>
+                <p><em>Set name</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$name </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getType" name="method_getType" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getType()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getType() : string</pre>
+                <p><em>Get type</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>type</p>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setType" name="method_setType" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setType()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setType(string <span class="argument">$type</span>)</pre>
+                <p><em>Set type</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$type </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getLink" name="method_getLink" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getLink()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getLink() : string</pre>
+                <p><em>Get link</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>link</p>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setLink" name="method_setLink" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setLink()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setLink(string <span class="argument">$link</span>)</pre>
+                <p><em>Set link</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$link </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getExpand" name="method_getExpand" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getExpand()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getExpand() : array</pre>
+                <p><em>Get expand array (e.g. (0=&gt;&#039;all&#039;,1=&gt;&#039;metadata&#039;)</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setExpanded" name="method_setExpanded" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setExpanded()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setExpanded(string <span class="argument">$expand</span>)</pre>
+                <p><em>Set expand array (e.g. (0=&gt;&#039;all&#039;,1=&gt;&#039;metadata&#039;)</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$expand </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getLogo" name="method_getLogo" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getLogo()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getLogo() : string</pre>
+                <p><em>Get logo</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>logo</p>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setLogo" name="method_setLogo" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setLogo()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setLogo(string <span class="argument">$logo</span>)</pre>
+                <p><em>Set logo</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$logo </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getParentCommunity" name="method_getParentCommunity" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getParentCommunity()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getParentCommunity() : array</pre>
+                <p><em>Get [[arentCommunity</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                            &mdash; <p>parentCommunity</p>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setParentCommunity" name="method_setParentCommunity" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setParentCommunity()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setParentCommunity(string <span class="argument">$parentCommunity</span>)</pre>
+                <p><em>Set parentCommunity</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$parentCommunity </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getCopyrightText" name="method_getCopyrightText" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getCopyrightText()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getCopyrightText() : string</pre>
+                <p><em>Get copyrightText</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>copyrightText</p>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setCopyrightText" name="method_setCopyrightText" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setCopyrightText()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setCopyrightText(string <span class="argument">$copyrightText</span>)</pre>
+                <p><em>Set copyrightText</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$copyrightText </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getIntroductoryText" name="method_getIntroductoryText" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getIntroductoryText()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getIntroductoryText() : string</pre>
+                <p><em>Get introductoryText</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>introductoryText</p>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setIntroductoryText" name="method_setIntroductoryText" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setIntroductoryText()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setIntroductoryText(string <span class="argument">$introductoryText</span>)</pre>
+                <p><em>Set introductoryText</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$introductoryText </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getShortDescription" name="method_getShortDescription" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getShortDescription()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getShortDescription() : string</pre>
+                <p><em>Get shortDescription</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setShortDescription" name="method_setShortDescription" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setShortDescription()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setShortDescription(string <span class="argument">$shortDescription</span>)</pre>
+                <p><em>Set shortDescription</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$shortDescription </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getSidebarText" name="method_getSidebarText" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getSidebarText()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getSidebarText() : string</pre>
+                <p><em>get sidebarText</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>sidebarText</p>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setSidebarText" name="method_setSidebarText" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setSidebarText()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setSidebarText(string <span class="argument">$sidebarText</span>)</pre>
+                <p><em>Set sidebarText</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$sidebarText </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getCountItems" name="method_getCountItems" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getCountItems()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getCountItems() : int</pre>
+                <p><em>get countItems</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    int
+                                            &mdash; <p>countItems</p>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setCountItems" name="method_setCountItems" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setCountItems()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setCountItems(int <span class="argument">$countItems</span>)</pre>
+                <p><em>Set countItems</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>int</td>
+                                <td>$countItems </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getCollections" name="method_getCollections" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getCollections()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getCollections() : array</pre>
+                <p><em>Get collections</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                            &mdash; <p>collections</p>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setCollections" name="method_setCollections" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setCollections()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setCollections(array <span class="argument">$collections</span>)</pre>
+                <p><em>Set collections</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$collections </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getSubCommunities" name="method_getSubCommunities" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getSubCommunities()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getSubCommunities() : array</pre>
+                <p><em>Get subCommunities</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                            &mdash; <p>subCommunities</p>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setSubCommunities" name="method_setSubCommunities" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setSubCommunities()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setSubCommunities(array <span class="argument">$subCommunities</span>)</pre>
+                <p><em>Set subCommunities</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$subCommunities </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_find" name="method_find" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">find()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">find(string <span class="argument">$id</span>, array <span class="argument">$options</span>, string <span class="argument">$outputFormat</span>, string <span class="argument">$inputFormat</span>) : \MIMAS\Service\Jorum\Item</pre>
+                <p><em>Wrapper function for findByIdOrHandle</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$options </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$outputFormat </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$inputFormat </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/MIMAS.Service.Jorum.Item.html">\MIMAS\Service\Jorum\Item</a>
+                                            &mdash; <p>$item</p>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">Community.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/Service/Jorum/Community.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/MIMAS.html">\MIMAS</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on June 30th, 2014 at 16:01.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

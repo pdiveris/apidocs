@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="https://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/MIMAS.html">\MIMAS</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">16</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-477251678"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-477251678" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-591855279"></a>
+                                <a href="../namespaces/MIMAS.html" style="margin-left: 30px; padding-left: 0">MIMAS</a>
+            </div>
+            <div id="namespace-591855279" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1210062708"></a>
+                                <a href="../namespaces/MIMAS.Schemas.html" style="margin-left: 30px; padding-left: 0">Schemas</a>
+            </div>
+            <div id="namespace-1210062708" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1212310110"></a>
+                                <a href="../namespaces/MIMAS.Schemas.DublinCore.html" style="margin-left: 30px; padding-left: 0">DublinCore</a>
+            </div>
+            <div id="namespace-1212310110" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Schemas.DublinCore.Core.html">Core</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Schemas.DublinCore.Elements.html">Elements</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Schemas.DublinCore.Terms.html">Terms</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-469764642"></a>
+                                <a href="../namespaces/MIMAS.Service.html" style="margin-left: 30px; padding-left: 0">Service</a>
+            </div>
+            <div id="namespace-469764642" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-937502059"></a>
+                                <a href="../namespaces/MIMAS.Service.Hairdressing.html" style="margin-left: 30px; padding-left: 0">Hairdressing</a>
+            </div>
+            <div id="namespace-937502059" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-582800769"></a>
+                                <a href="../namespaces/MIMAS.Service.Hairdressing.Db.html" style="margin-left: 30px; padding-left: 0">Db</a>
+            </div>
+            <div id="namespace-582800769" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1168770944"></a>
+                                <a href="../namespaces/MIMAS.Service.Hairdressing.Db.Models.html" style="margin-left: 30px; padding-left: 0">Models</a>
+            </div>
+            <div id="namespace-1168770944" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.ContentTypePage.html">ContentTypePage</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.ContentTypeStep.html">ContentTypeStep</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.File.html">File</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.MenuLink.html">MenuLink</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.Node.html">Node</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.NodeRevision.html">NodeRevision</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.NodeType.html">NodeType</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.PrevNextNode.html">PrevNextNode</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.TermData.html">TermData</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.TermHierarchy.html">TermHierarchy</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.TermNode.html">TermNode</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.Vocabulary.html">Vocabulary</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.VocabularyNodeType.html">VocabularyNodeType</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html">JorumDbModel</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Collection.html">Collection</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Community.html">Community</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.DrupalApi.html">DrupalApi</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Item.html">Item</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Metadata.html">Metadata</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1137227502"></a>
+                                <a href="../namespaces/MIMAS.Service.Jorum.html" style="margin-left: 30px; padding-left: 0">Jorum</a>
+            </div>
+            <div id="namespace-1137227502" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1150525708"></a>
+                                <a href="../namespaces/MIMAS.Service.Jorum.Formatters.html" style="margin-left: 30px; padding-left: 0">Formatters</a>
+            </div>
+            <div id="namespace-1150525708" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.Formatters.Html.html">Html</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.Bitstream.html">Bitstream</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.Collection.html">Collection</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.Community.html">Community</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.Context.html">Context</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.DataCollection.html">DataCollection</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.DataCollection.html">DataCollection</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.Item.html">Item</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.ItemList.html">ItemList</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.JorumApi.html">JorumApi</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.JorumModel.html">JorumModel</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.Metadata.html">Metadata</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/MIMAS.Service.RepositoryInterface.html">RepositoryInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Service.Context.html">Context</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.DataCollection.html">DataCollection</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.JorumModel.html">JorumModel</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2004412889"></a>
+                                <a href="../namespaces/MIMAS.XmlSerialization.html" style="margin-left: 30px; padding-left: 0">XmlSerialization</a>
+            </div>
+            <div id="namespace-2004412889" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-826754133"></a>
+                                <a href="../namespaces/MIMAS.XmlSerialization.Tests.html" style="margin-left: 30px; padding-left: 0">Tests</a>
+            </div>
+            <div id="namespace-826754133" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.AnnotationTests.html">AnnotationTests</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.ClassMetaStoreTests.html">ClassMetaStoreTests</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.ClassMetaTests.html">ClassMetaTests</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample1.html">Sample1</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample10.html">Sample10</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample10_Granny.html">Sample10_Granny</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample10_Parent.html">Sample10_Parent</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample2.html">Sample2</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample3.html">Sample3</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample4.html">Sample4</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample5.html">Sample5</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample6.html">Sample6</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample7.html">Sample7</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample8.html">Sample8</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample9.html">Sample9</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.XmlSerializerTests.html">XmlSerializerTests</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Annotation.html">Annotation</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.ClassMeta.html">ClassMeta</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.ClassMetaStore.html">ClassMetaStore</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.SchemaGenerator.html">SchemaGenerator</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.XmlSerializer.html">XmlSerializer</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Collection.html">Collection</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Debug.html">Debug</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Helpers.html">Helpers</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/MIMAS.XmlSerialization.html">\MIMAS\XmlSerialization</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\MIMAS\XmlSerialization</small>SchemaGenerator</h1>
+                    <p><em>Class SchemaGenerator</em></p>
+                    
+
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/MIMAS.XmlSerialization.SchemaGenerator.html#method_generate" class="">generate()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No protected properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <a href="../classes/MIMAS.XmlSerialization.SchemaGenerator.html#method_createSchemaNodeForObject" class="">createSchemaNodeForObject()</a><br />
+                                                                    <a href="../classes/MIMAS.XmlSerialization.SchemaGenerator.html#method_createSchemaNodeForSingleElementProperty" class="">createSchemaNodeForSingleElementProperty()</a><br />
+                                                                    <a href="../classes/MIMAS.XmlSerialization.SchemaGenerator.html#method_createSchemaNodeForMultiElementProperty" class="">createSchemaNodeForMultiElementProperty()</a><br />
+                                                                    <a href="../classes/MIMAS.XmlSerialization.SchemaGenerator.html#method_getXsdType" class="">getXsdType()</a><br />
+                                                                    <a href="../classes/MIMAS.XmlSerialization.SchemaGenerator.html#method_mentionType" class="">mentionType()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/MIMAS.XmlSerialization.SchemaGenerator.html#property_pendingTypes" class="">$pendingTypes</a><br />
+                                                                    <a href="../classes/MIMAS.XmlSerialization.SchemaGenerator.html#property_generatedTypes" class="">$generatedTypes</a><br />
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/XmlSerialization.SchemaGenerator.php.html"><div class="path-wrapper">XmlSerialization/SchemaGenerator.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">\MIMAS\XmlSerialization</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\MIMAS\XmlSerialization\SchemaGenerator</div>
+                            </dd>
+
+                        
+                        
+                        
+                        
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr>
+                            <th>
+                                todo
+                            </th>
+                            <td>
+                                                            </td>
+                        </tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                                    <a id="properties" name="properties"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Properties</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_pendingTypes" name="property_pendingTypes" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$pendingTypes</h3>
+                <pre class="signature">$pendingTypes</pre>
+                <p><em>pendingTypes</em></p>
+                
+
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_generatedTypes" name="property_generatedTypes" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$generatedTypes</h3>
+                <pre class="signature">$generatedTypes</pre>
+                <p><em>generatedTypes</em></p>
+                
+
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                            
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_generate" name="method_generate" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">generate()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">generate(mixed <span class="argument">$rootClassName</span>) : \DOMDocument</pre>
+                <p><em>generate</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$rootClassName </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \DOMDocument
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_createSchemaNodeForObject" name="method_createSchemaNodeForObject" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">createSchemaNodeForObject()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">createSchemaNodeForObject(\DOMDocument <span class="argument">$doc</span>, mixed <span class="argument">$obj</span>) : \DOMElement</pre>
+                <p><em>createSchemaNodeForObject</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\DOMDocument</td>
+                                <td>$doc </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$obj </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \DOMElement
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_createSchemaNodeForSingleElementProperty" name="method_createSchemaNodeForSingleElementProperty" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">createSchemaNodeForSingleElementProperty()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">createSchemaNodeForSingleElementProperty(\DOMDocument <span class="argument">$doc</span>, \MIMAS\XmlSerialization\ClassMeta <span class="argument">$meta</span>, mixed <span class="argument">$elementName</span>) : \DOMElement</pre>
+                <p><em>createSchemaNodeForSingleElementProperty</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\DOMDocument</td>
+                                <td>$doc </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="../classes/MIMAS.XmlSerialization.ClassMeta.html">\MIMAS\XmlSerialization\ClassMeta</a></td>
+                                <td>$meta </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$elementName </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \DOMElement
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_createSchemaNodeForMultiElementProperty" name="method_createSchemaNodeForMultiElementProperty" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">createSchemaNodeForMultiElementProperty()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">createSchemaNodeForMultiElementProperty(\DOMDocument <span class="argument">$doc</span>, \MIMAS\XmlSerialization\ClassMeta <span class="argument">$meta</span>, array <span class="argument">$names</span>) : \DOMElement</pre>
+                <p><em>createSchemaNodeForMultiElementProperty</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\DOMDocument</td>
+                                <td>$doc </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="../classes/MIMAS.XmlSerialization.ClassMeta.html">\MIMAS\XmlSerialization\ClassMeta</a></td>
+                                <td>$meta </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>array</td>
+                                <td>$names </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    \DOMElement
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getXsdType" name="method_getXsdType" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">getXsdType()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getXsdType(mixed <span class="argument">$type</span>) : string</pre>
+                <p><em>getXsdType
+w</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$type </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_mentionType" name="method_mentionType" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">mentionType()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">mentionType(mixed <span class="argument">$type</span>)</pre>
+                <p><em>mentionType</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$type </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">SchemaGenerator.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/XmlSerialization/SchemaGenerator.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/MIMAS.html">\MIMAS</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on June 30th, 2014 at 16:01.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

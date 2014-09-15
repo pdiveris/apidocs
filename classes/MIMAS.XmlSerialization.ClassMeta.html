@@ -1,0 +1,1873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="https://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/MIMAS.html">\MIMAS</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">16</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1203352111"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-1203352111" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1579542639"></a>
+                                <a href="../namespaces/MIMAS.html" style="margin-left: 30px; padding-left: 0">MIMAS</a>
+            </div>
+            <div id="namespace-1579542639" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-315882971"></a>
+                                <a href="../namespaces/MIMAS.Schemas.html" style="margin-left: 30px; padding-left: 0">Schemas</a>
+            </div>
+            <div id="namespace-315882971" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1702398700"></a>
+                                <a href="../namespaces/MIMAS.Schemas.DublinCore.html" style="margin-left: 30px; padding-left: 0">DublinCore</a>
+            </div>
+            <div id="namespace-1702398700" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Schemas.DublinCore.Core.html">Core</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Schemas.DublinCore.Elements.html">Elements</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Schemas.DublinCore.Terms.html">Terms</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-729984776"></a>
+                                <a href="../namespaces/MIMAS.Service.html" style="margin-left: 30px; padding-left: 0">Service</a>
+            </div>
+            <div id="namespace-729984776" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-262303868"></a>
+                                <a href="../namespaces/MIMAS.Service.Hairdressing.html" style="margin-left: 30px; padding-left: 0">Hairdressing</a>
+            </div>
+            <div id="namespace-262303868" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-77187179"></a>
+                                <a href="../namespaces/MIMAS.Service.Hairdressing.Db.html" style="margin-left: 30px; padding-left: 0">Db</a>
+            </div>
+            <div id="namespace-77187179" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-156103056"></a>
+                                <a href="../namespaces/MIMAS.Service.Hairdressing.Db.Models.html" style="margin-left: 30px; padding-left: 0">Models</a>
+            </div>
+            <div id="namespace-156103056" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.ContentTypePage.html">ContentTypePage</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.ContentTypeStep.html">ContentTypeStep</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.File.html">File</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.MenuLink.html">MenuLink</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.Node.html">Node</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.NodeRevision.html">NodeRevision</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.NodeType.html">NodeType</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.PrevNextNode.html">PrevNextNode</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.TermData.html">TermData</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.TermHierarchy.html">TermHierarchy</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.TermNode.html">TermNode</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.Vocabulary.html">Vocabulary</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.VocabularyNodeType.html">VocabularyNodeType</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html">JorumDbModel</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Collection.html">Collection</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Community.html">Community</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.DrupalApi.html">DrupalApi</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Item.html">Item</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Metadata.html">Metadata</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-380193873"></a>
+                                <a href="../namespaces/MIMAS.Service.Jorum.html" style="margin-left: 30px; padding-left: 0">Jorum</a>
+            </div>
+            <div id="namespace-380193873" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-527757527"></a>
+                                <a href="../namespaces/MIMAS.Service.Jorum.Formatters.html" style="margin-left: 30px; padding-left: 0">Formatters</a>
+            </div>
+            <div id="namespace-527757527" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.Formatters.Html.html">Html</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.Bitstream.html">Bitstream</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.Collection.html">Collection</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.Community.html">Community</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.Context.html">Context</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.DataCollection.html">DataCollection</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.DataCollection.html">DataCollection</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.Item.html">Item</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.ItemList.html">ItemList</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.JorumApi.html">JorumApi</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.JorumModel.html">JorumModel</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.Metadata.html">Metadata</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/MIMAS.Service.RepositoryInterface.html">RepositoryInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Service.Context.html">Context</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.DataCollection.html">DataCollection</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.JorumModel.html">JorumModel</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-635234134"></a>
+                                <a href="../namespaces/MIMAS.XmlSerialization.html" style="margin-left: 30px; padding-left: 0">XmlSerialization</a>
+            </div>
+            <div id="namespace-635234134" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1883282995"></a>
+                                <a href="../namespaces/MIMAS.XmlSerialization.Tests.html" style="margin-left: 30px; padding-left: 0">Tests</a>
+            </div>
+            <div id="namespace-1883282995" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.AnnotationTests.html">AnnotationTests</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.ClassMetaStoreTests.html">ClassMetaStoreTests</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.ClassMetaTests.html">ClassMetaTests</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample1.html">Sample1</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample10.html">Sample10</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample10_Granny.html">Sample10_Granny</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample10_Parent.html">Sample10_Parent</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample2.html">Sample2</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample3.html">Sample3</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample4.html">Sample4</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample5.html">Sample5</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample6.html">Sample6</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample7.html">Sample7</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample8.html">Sample8</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample9.html">Sample9</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.XmlSerializerTests.html">XmlSerializerTests</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Annotation.html">Annotation</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.ClassMeta.html">ClassMeta</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.ClassMetaStore.html">ClassMetaStore</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.SchemaGenerator.html">SchemaGenerator</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.XmlSerializer.html">XmlSerializer</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Collection.html">Collection</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Debug.html">Debug</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Helpers.html">Helpers</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/MIMAS.XmlSerialization.html">\MIMAS\XmlSerialization</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\MIMAS\XmlSerialization</small>ClassMeta</h1>
+                    <p><em>Class ClassMeta</em></p>
+                    
+
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/MIMAS.XmlSerialization.ClassMeta.html#method___construct" class="">__construct()</a><br />
+                                                                    <a href="../classes/MIMAS.XmlSerialization.ClassMeta.html#method_getClassName" class="">getClassName()</a><br />
+                                                                    <a href="../classes/MIMAS.XmlSerialization.ClassMeta.html#method_getNamespace" class="">getNamespace()</a><br />
+                                                                    <a href="../classes/MIMAS.XmlSerialization.ClassMeta.html#method_getXmlRoot" class="">getXmlRoot()</a><br />
+                                                                    <a href="../classes/MIMAS.XmlSerialization.ClassMeta.html#method_getPropertyNames" class="">getPropertyNames()</a><br />
+                                                                    <a href="../classes/MIMAS.XmlSerialization.ClassMeta.html#method_getAttributeNames" class="">getAttributeNames()</a><br />
+                                                                    <a href="../classes/MIMAS.XmlSerialization.ClassMeta.html#method_getAttributeNamesForProperty" class="">getAttributeNamesForProperty()</a><br />
+                                                                    <a href="../classes/MIMAS.XmlSerialization.ClassMeta.html#method_getElementNames" class="">getElementNames()</a><br />
+                                                                    <a href="../classes/MIMAS.XmlSerialization.ClassMeta.html#method_getElementNamesForProperty" class="">getElementNamesForProperty()</a><br />
+                                                                    <a href="../classes/MIMAS.XmlSerialization.ClassMeta.html#method_getPropertyValue" class="">getPropertyValue()</a><br />
+                                                                    <a href="../classes/MIMAS.XmlSerialization.ClassMeta.html#method_setPropertyValue" class="">setPropertyValue()</a><br />
+                                                                    <a href="../classes/MIMAS.XmlSerialization.ClassMeta.html#method_getAttributeName" class="">getAttributeName()</a><br />
+                                                                    <a href="../classes/MIMAS.XmlSerialization.ClassMeta.html#method_getElementName" class="">getElementName()</a><br />
+                                                                    <a href="../classes/MIMAS.XmlSerialization.ClassMeta.html#method_getPropertyNameForAttribute" class="">getPropertyNameForAttribute()</a><br />
+                                                                    <a href="../classes/MIMAS.XmlSerialization.ClassMeta.html#method_getPropertyNameForElement" class="">getPropertyNameForElement()</a><br />
+                                                                    <a href="../classes/MIMAS.XmlSerialization.ClassMeta.html#method_getPropertyTypeForAttribute" class="">getPropertyTypeForAttribute()</a><br />
+                                                                    <a href="../classes/MIMAS.XmlSerialization.ClassMeta.html#method_getPropertyTypeForElement" class="">getPropertyTypeForElement()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No protected properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <a href="../classes/MIMAS.XmlSerialization.ClassMeta.html#method_receiveXmlRoot" class="">receiveXmlRoot()</a><br />
+                                                                    <a href="../classes/MIMAS.XmlSerialization.ClassMeta.html#method_processProperty" class="">processProperty()</a><br />
+                                                                    <a href="../classes/MIMAS.XmlSerialization.ClassMeta.html#method_resolveType" class="">resolveType()</a><br />
+                                                                    <a href="../classes/MIMAS.XmlSerialization.ClassMeta.html#method_hasXmlNameForProperty" class="">hasXmlNameForProperty()</a><br />
+                                                                    <a href="../classes/MIMAS.XmlSerialization.ClassMeta.html#method_hasAttributeForProperty" class="">hasAttributeForProperty()</a><br />
+                                                                    <a href="../classes/MIMAS.XmlSerialization.ClassMeta.html#method_hasElementForProperty" class="">hasElementForProperty()</a><br />
+                                                                    <a href="../classes/MIMAS.XmlSerialization.ClassMeta.html#method_hasPropertyForAttribute" class="">hasPropertyForAttribute()</a><br />
+                                                                    <a href="../classes/MIMAS.XmlSerialization.ClassMeta.html#method_hasPropertyForElement" class="">hasPropertyForElement()</a><br />
+                                                                    <a href="../classes/MIMAS.XmlSerialization.ClassMeta.html#method_fail" class="">fail()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/MIMAS.XmlSerialization.ClassMeta.html#property_shortName" class="">$shortName</a><br />
+                                                                    <a href="../classes/MIMAS.XmlSerialization.ClassMeta.html#property_namespace" class="">$namespace</a><br />
+                                                                    <a href="../classes/MIMAS.XmlSerialization.ClassMeta.html#property_xmlRoot" class="">$xmlRoot</a><br />
+                                                                    <a href="../classes/MIMAS.XmlSerialization.ClassMeta.html#property_reflectors" class="">$reflectors</a><br />
+                                                                    <a href="../classes/MIMAS.XmlSerialization.ClassMeta.html#property_props" class="">$props</a><br />
+                                                                    <a href="../classes/MIMAS.XmlSerialization.ClassMeta.html#property_attrs" class="">$attrs</a><br />
+                                                                    <a href="../classes/MIMAS.XmlSerialization.ClassMeta.html#property_els" class="">$els</a><br />
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/XmlSerialization.ClassMeta.php.html"><div class="path-wrapper">XmlSerialization/ClassMeta.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">\MIMAS\XmlSerialization</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\MIMAS\XmlSerialization\ClassMeta</div>
+                            </dd>
+
+                        
+                        
+                        
+                        
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr>
+                            <th>
+                                todo
+                            </th>
+                            <td>
+                                                            </td>
+                        </tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                                    <a id="properties" name="properties"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Properties</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_shortName" name="property_shortName" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$shortName</h3>
+                <pre class="signature">$shortName : string</pre>
+                <p><em>shortName</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_namespace" name="property_namespace" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$namespace</h3>
+                <pre class="signature">$namespace : string</pre>
+                <p><em>namespace</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_xmlRoot" name="property_xmlRoot" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$xmlRoot</h3>
+                <pre class="signature">$xmlRoot : mixed</pre>
+                <p><em>xmlRoot</em></p>
+                
+
+                                <h4>Type</h4>
+                mixed
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_reflectors" name="property_reflectors" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$reflectors</h3>
+                <pre class="signature">$reflectors : array</pre>
+                <p><em>reflectors</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_props" name="property_props" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$props</h3>
+                <pre class="signature">$props : array</pre>
+                <p><em>props</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_attrs" name="property_attrs" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$attrs</h3>
+                <pre class="signature">$attrs : array</pre>
+                <p><em>attrs</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_els" name="property_els" class="anchor"></a>
+            <article class="property">
+                <h3 class="private ">$els</h3>
+                <pre class="signature">$els : array</pre>
+                <p><em>els</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                            
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct(mixed <span class="argument">$class</span>)</pre>
+                <p><em>Constructor</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$class </td>
+                                <td><p>An instance or a class name</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getClassName" name="method_getClassName" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getClassName()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getClassName() : string</pre>
+                <p><em>Get class name</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getNamespace" name="method_getNamespace" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getNamespace()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getNamespace() : string</pre>
+                <p><em>Get Namespace</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getXmlRoot" name="method_getXmlRoot" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getXmlRoot()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getXmlRoot() : mixed|string</pre>
+                <p><em>Get the XML root</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    mixed|string
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getPropertyNames" name="method_getPropertyNames" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getPropertyNames()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getPropertyNames() : array</pre>
+                <p><em>Get the array of property names</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getAttributeNames" name="method_getAttributeNames" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getAttributeNames()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getAttributeNames() : array</pre>
+                <p><em>Get the array of Attribute names</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getAttributeNamesForProperty" name="method_getAttributeNamesForProperty" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getAttributeNamesForProperty()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getAttributeNamesForProperty(mixed <span class="argument">$propName</span>) : array</pre>
+                <p><em>Get array of Attribute names for given property</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$propName </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getElementNames" name="method_getElementNames" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getElementNames()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getElementNames() : array</pre>
+                <p><em>Return element names</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getElementNamesForProperty" name="method_getElementNamesForProperty" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getElementNamesForProperty()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getElementNamesForProperty(mixed <span class="argument">$propName</span>) : array</pre>
+                <p><em>Get Element names for given property</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$propName </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getPropertyValue" name="method_getPropertyValue" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getPropertyValue()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getPropertyValue(mixed <span class="argument">$obj</span>, mixed <span class="argument">$propName</span>) : mixed</pre>
+                <p><em>getPropertyValue</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$obj </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$propName </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    mixed
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setPropertyValue" name="method_setPropertyValue" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setPropertyValue()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setPropertyValue(mixed <span class="argument">$obj</span>, mixed <span class="argument">$propName</span>, mixed <span class="argument">$value</span>)</pre>
+                <p><em>setPropertyValue</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$obj </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$propName </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$value </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getAttributeName" name="method_getAttributeName" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getAttributeName()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getAttributeName(mixed <span class="argument">$propName</span>, mixed <span class="argument">$valueType</span>) : null</pre>
+                <p><em>getAttributeName</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$propName </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$valueType </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    null
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getElementName" name="method_getElementName" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getElementName()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getElementName(mixed <span class="argument">$propName</span>, mixed <span class="argument">$valueType</span>) : null</pre>
+                <p><em>getElementName</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$propName </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$valueType </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    null
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getPropertyNameForAttribute" name="method_getPropertyNameForAttribute" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getPropertyNameForAttribute()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getPropertyNameForAttribute(mixed <span class="argument">$attrName</span>) : null</pre>
+                <p><em>getPropertyNameForAttribute</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$attrName </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    null
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getPropertyNameForElement" name="method_getPropertyNameForElement" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getPropertyNameForElement()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getPropertyNameForElement(mixed <span class="argument">$elementName</span>) : null</pre>
+                <p><em>getPropertyNameForElement</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$elementName </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    null
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getPropertyTypeForAttribute" name="method_getPropertyTypeForAttribute" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getPropertyTypeForAttribute()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getPropertyTypeForAttribute(mixed <span class="argument">$attrName</span>) : null</pre>
+                <p><em>getPropertyTypeForAttribute</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$attrName </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    null
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getPropertyTypeForElement" name="method_getPropertyTypeForElement" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getPropertyTypeForElement()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getPropertyTypeForElement(mixed <span class="argument">$elementName</span>) : null</pre>
+                <p><em>getPropertyTypeForElement</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$elementName </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    null
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_receiveXmlRoot" name="method_receiveXmlRoot" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">receiveXmlRoot()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">receiveXmlRoot(mixed <span class="argument">$docComment</span>) : mixed</pre>
+                <p><em>Receive XML root</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$docComment </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    mixed
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_processProperty" name="method_processProperty" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">processProperty()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">processProperty(\ReflectionProperty <span class="argument">$p</span>)</pre>
+                <p><em>Process a property</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\ReflectionProperty</td>
+                                <td>$p </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_resolveType" name="method_resolveType" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">resolveType()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">resolveType(mixed <span class="argument">$type</span>) : string</pre>
+                <p><em>Resolve type</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$type </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_hasXmlNameForProperty" name="method_hasXmlNameForProperty" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">hasXmlNameForProperty()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">hasXmlNameForProperty(mixed <span class="argument">$propName</span>, mixed <span class="argument">$valueType</span>) : bool</pre>
+                <p><em>hasXmlNameForProperty</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$propName </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$valueType </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    bool
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_hasAttributeForProperty" name="method_hasAttributeForProperty" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">hasAttributeForProperty()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">hasAttributeForProperty(mixed <span class="argument">$propName</span>, mixed <span class="argument">$valueType</span>) : bool</pre>
+                <p><em>hasAttributeForProperty</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$propName </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$valueType </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    bool
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_hasElementForProperty" name="method_hasElementForProperty" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">hasElementForProperty()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">hasElementForProperty(mixed <span class="argument">$propName</span>, mixed <span class="argument">$valueType</span>) : bool</pre>
+                <p><em>hasElementForProperty</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$propName </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$valueType </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    bool
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_hasPropertyForAttribute" name="method_hasPropertyForAttribute" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">hasPropertyForAttribute()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">hasPropertyForAttribute(mixed <span class="argument">$attrName</span>) : bool</pre>
+                <p><em>hasPropertyForAttribute</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$attrName </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    bool
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_hasPropertyForElement" name="method_hasPropertyForElement" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">hasPropertyForElement()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">hasPropertyForElement(mixed <span class="argument">$elementName</span>) : bool</pre>
+                <p><em>hasPropertyForElement</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$elementName </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    bool
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_fail" name="method_fail" class="anchor"></a>
+            <article class="method">
+                <h3 class="private ">fail()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">fail(mixed <span class="argument">$message</span>)</pre>
+                <p><em>Fail by throwing an Exception</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$message </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\RuntimeException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">ClassMeta.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/XmlSerialization/ClassMeta.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/MIMAS.html">\MIMAS</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on June 30th, 2014 at 16:01.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

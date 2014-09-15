@@ -1,0 +1,2313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="https://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <![endif]-->
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/MIMAS.html">\MIMAS</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">16</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-800149769"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-800149769" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1668802739"></a>
+                                <a href="../namespaces/MIMAS.html" style="margin-left: 30px; padding-left: 0">MIMAS</a>
+            </div>
+            <div id="namespace-1668802739" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1075533362"></a>
+                                <a href="../namespaces/MIMAS.Schemas.html" style="margin-left: 30px; padding-left: 0">Schemas</a>
+            </div>
+            <div id="namespace-1075533362" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-789287799"></a>
+                                <a href="../namespaces/MIMAS.Schemas.DublinCore.html" style="margin-left: 30px; padding-left: 0">DublinCore</a>
+            </div>
+            <div id="namespace-789287799" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Schemas.DublinCore.Core.html">Core</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Schemas.DublinCore.Elements.html">Elements</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Schemas.DublinCore.Terms.html">Terms</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1112350226"></a>
+                                <a href="../namespaces/MIMAS.Service.html" style="margin-left: 30px; padding-left: 0">Service</a>
+            </div>
+            <div id="namespace-1112350226" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-563343479"></a>
+                                <a href="../namespaces/MIMAS.Service.Hairdressing.html" style="margin-left: 30px; padding-left: 0">Hairdressing</a>
+            </div>
+            <div id="namespace-563343479" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-759906989"></a>
+                                <a href="../namespaces/MIMAS.Service.Hairdressing.Db.html" style="margin-left: 30px; padding-left: 0">Db</a>
+            </div>
+            <div id="namespace-759906989" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-2012590408"></a>
+                                <a href="../namespaces/MIMAS.Service.Hairdressing.Db.Models.html" style="margin-left: 30px; padding-left: 0">Models</a>
+            </div>
+            <div id="namespace-2012590408" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.ContentTypePage.html">ContentTypePage</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.ContentTypeStep.html">ContentTypeStep</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.File.html">File</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.MenuLink.html">MenuLink</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.Node.html">Node</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.NodeRevision.html">NodeRevision</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.NodeType.html">NodeType</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.PrevNextNode.html">PrevNextNode</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.TermData.html">TermData</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.TermHierarchy.html">TermHierarchy</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.TermNode.html">TermNode</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.Vocabulary.html">Vocabulary</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.Models.VocabularyNodeType.html">VocabularyNodeType</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html">JorumDbModel</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Collection.html">Collection</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Community.html">Community</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.DrupalApi.html">DrupalApi</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Item.html">Item</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Hairdressing.Metadata.html">Metadata</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1843385345"></a>
+                                <a href="../namespaces/MIMAS.Service.Jorum.html" style="margin-left: 30px; padding-left: 0">Jorum</a>
+            </div>
+            <div id="namespace-1843385345" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1959158194"></a>
+                                <a href="../namespaces/MIMAS.Service.Jorum.Formatters.html" style="margin-left: 30px; padding-left: 0">Formatters</a>
+            </div>
+            <div id="namespace-1959158194" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.Formatters.Html.html">Html</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.Bitstream.html">Bitstream</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.Collection.html">Collection</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.Community.html">Community</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.Context.html">Context</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.DataCollection.html">DataCollection</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.DataCollection.html">DataCollection</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.Item.html">Item</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.ItemList.html">ItemList</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.JorumApi.html">JorumApi</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.JorumModel.html">JorumModel</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.Jorum.Metadata.html">Metadata</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/MIMAS.Service.RepositoryInterface.html">RepositoryInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Service.Context.html">Context</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.DataCollection.html">DataCollection</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Service.JorumModel.html">JorumModel</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1578083579"></a>
+                                <a href="../namespaces/MIMAS.XmlSerialization.html" style="margin-left: 30px; padding-left: 0">XmlSerialization</a>
+            </div>
+            <div id="namespace-1578083579" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1306238162"></a>
+                                <a href="../namespaces/MIMAS.XmlSerialization.Tests.html" style="margin-left: 30px; padding-left: 0">Tests</a>
+            </div>
+            <div id="namespace-1306238162" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.AnnotationTests.html">AnnotationTests</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.ClassMetaStoreTests.html">ClassMetaStoreTests</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.ClassMetaTests.html">ClassMetaTests</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample1.html">Sample1</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample10.html">Sample10</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample10_Granny.html">Sample10_Granny</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample10_Parent.html">Sample10_Parent</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample2.html">Sample2</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample3.html">Sample3</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample4.html">Sample4</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample5.html">Sample5</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample6.html">Sample6</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample7.html">Sample7</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample8.html">Sample8</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.Sample9.html">Sample9</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Tests.XmlSerializerTests.html">XmlSerializerTests</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.Annotation.html">Annotation</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.ClassMeta.html">ClassMeta</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.ClassMetaStore.html">ClassMetaStore</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.SchemaGenerator.html">SchemaGenerator</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.XmlSerialization.XmlSerializer.html">XmlSerializer</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/MIMAS.Collection.html">Collection</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Debug.html">Debug</a></li>
+                                                    <li class="class"><a href="../classes/MIMAS.Helpers.html">Helpers</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/MIMAS.Service.Hairdressing.Db.Models.html">\MIMAS\Service\Hairdressing\Db\Models</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\MIMAS\Service\Hairdressing\Db\Models</small>ContentTypeStep</h1>
+                    <p><em>Class ContentTypeStep</em></p>
+                    <p>Steps, probably not required</p>
+<p>IMPORTANT</p>
+<p>Extra fields table as defined Drupal 6.x</p>
+
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.Models.ContentTypeStep.html#method___construct" class="">__construct()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html#method_getQuery" class="">getQuery()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html#method_setQuery" class="">setQuery()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html#method_getQueryDateTime" class="">getQueryDateTime()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html#method_setQueryDateTime" class="">setQueryDateTime()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html#method_setClass" class="">setClass()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html#method_getClass" class="">getClass()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html#method_setGroupBy" class="">setGroupBy()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html#method_getGroupBy" class="">getGroupBy()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html#method_setOrWhere" class="">setOrWhere()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html#method_getOrWhere" class="">getOrWhere()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html#method_setOrderBy" class="">setOrderBy()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html#method_getOrderBy" class="">getOrderBy()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html#method_setPrimaryKey" class="">setPrimaryKey()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html#method_getPrimaryKey" class="">getPrimaryKey()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html#method_setWhere" class="">setWhere()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html#method_getWhere" class="">getWhere()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html#method_getInstance" class="">getInstance()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html#method_where" class="">where()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html#method_orWhere" class="">orWhere()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html#method_andWhere" class="">andWhere()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html#method_orderBy" class="">orderBy()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html#method_groupBy" class="">groupBy()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html#method_getItems" class="">getItems()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html#method_get" class="">get()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html#method_resetQueries" class="">resetQueries()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html#method_itemCollection" class="">itemCollection()</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html#method_find" class="">find()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.Models.ContentTypeStep.html#property_vid" class="">$vid</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.Models.ContentTypeStep.html#property_nid" class="">$nid</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.Models.ContentTypeStep.html#property_field_step_value" class="">$field_step_value</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.Models.ContentTypeStep.html#property_field_stepimage_fid" class="">$field_stepimage_fid</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.Models.ContentTypeStep.html#property_field_stepimage_list" class="">$field_stepimage_list</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.Models.ContentTypeStep.html#property_field_stepimage_data" class="">$field_stepimage_data</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html#property_class" class="">$class</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.Models.ContentTypeStep.html#property_primaryKey" class="">$primaryKey</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html#property_instance" class="">$instance</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html#property_where" class="">$where</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html#property_orWhere" class="">$orWhere</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html#property_orderBy" class="">$orderBy</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html#property_groupBy" class="">$groupBy</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html#property_items" class="">$items</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html#property_query" class="">$query</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html#property_queryDateTime" class="">$queryDateTime</a><br />
+                                                                    <a href="../classes/MIMAS.Service.Hairdressing.Db.Models.ContentTypeStep.html#property_table" class="">$table</a><br />
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/Service.Hairdressing.Db.Models.ContentTypeStep.php.html"><div class="path-wrapper">Service/Hairdressing/Db/Models/ContentTypeStep.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper"></div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                                                                                                                                                
+                                        <div class="namespace-wrapper"><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html">\MIMAS\Service\Hairdressing\Db\JorumDbModel</a></div>
+                                                                                                    <div class="namespace-wrapper">\MIMAS\Service\Hairdressing\Db\Models\ContentTypeStep</div>
+                            </dd>
+
+                        
+                        
+                        
+                        
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr>
+                            <th>
+                                author
+                            </th>
+                            <td>
+                                                                    <p>Petros Diveris</p>
+                                                            </td>
+                        </tr>
+                                            <tr>
+                            <th>
+                                todo
+                            </th>
+                            <td>
+                                                            </td>
+                        </tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                                    <a id="properties" name="properties"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Properties</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_vid" name="property_vid" class="anchor"></a>
+            <article class="property">
+                <h3 class="public ">$vid</h3>
+                <pre class="signature">$vid : int</pre>
+                <p><em>Version id</em></p>
+                
+
+                                <h4>Type</h4>
+                int
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_nid" name="property_nid" class="anchor"></a>
+            <article class="property">
+                <h3 class="public ">$nid</h3>
+                <pre class="signature">$nid : int</pre>
+                <p><em>Node id</em></p>
+                
+
+                                <h4>Type</h4>
+                int
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_field_step_value" name="property_field_step_value" class="anchor"></a>
+            <article class="property">
+                <h3 class="public ">$field_step_value</h3>
+                <pre class="signature">$field_step_value : int</pre>
+                <p><em>Step value</em></p>
+                
+
+                                <h4>Type</h4>
+                int
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_field_stepimage_fid" name="property_field_stepimage_fid" class="anchor"></a>
+            <article class="property">
+                <h3 class="public ">$field_stepimage_fid</h3>
+                <pre class="signature">$field_stepimage_fid : int</pre>
+                <p><em>field_stepimage_fid</em></p>
+                
+
+                                <h4>Type</h4>
+                int
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_field_stepimage_list" name="property_field_stepimage_list" class="anchor"></a>
+            <article class="property">
+                <h3 class="public ">$field_stepimage_list</h3>
+                <pre class="signature">$field_stepimage_list : int</pre>
+                <p><em>field_stepimage_list</em></p>
+                
+
+                                <h4>Type</h4>
+                int
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_field_stepimage_data" name="property_field_stepimage_data" class="anchor"></a>
+            <article class="property">
+                <h3 class="public ">$field_stepimage_data</h3>
+                <pre class="signature">$field_stepimage_data : string</pre>
+                <p><em>field_stepimage_data</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_class" name="property_class" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$class</h3>
+                <pre class="signature">$class : string</pre>
+                <p><em>Class</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html"><div class="path-wrapper">\MIMAS\Service\Hairdressing\Db\JorumDbModel</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_primaryKey" name="property_primaryKey" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$primaryKey</h3>
+                <pre class="signature">$primaryKey : string</pre>
+                <p><em>The PK</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_instance" name="property_instance" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$instance</h3>
+                <pre class="signature">$instance</pre>
+                <p><em>instance</em></p>
+                
+
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html"><div class="path-wrapper">\MIMAS\Service\Hairdressing\Db\JorumDbModel</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_where" name="property_where" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$where</h3>
+                <pre class="signature">$where : array</pre>
+                <p><em>where array</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html"><div class="path-wrapper">\MIMAS\Service\Hairdressing\Db\JorumDbModel</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_orWhere" name="property_orWhere" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$orWhere</h3>
+                <pre class="signature">$orWhere : array</pre>
+                <p><em>orWhere array</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html"><div class="path-wrapper">\MIMAS\Service\Hairdressing\Db\JorumDbModel</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_orderBy" name="property_orderBy" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$orderBy</h3>
+                <pre class="signature">$orderBy : array</pre>
+                <p><em>orderBy array</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html"><div class="path-wrapper">\MIMAS\Service\Hairdressing\Db\JorumDbModel</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_groupBy" name="property_groupBy" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$groupBy</h3>
+                <pre class="signature">$groupBy : array</pre>
+                <p><em>groupBy array</em></p>
+                
+
+                                <h4>Type</h4>
+                array
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html"><div class="path-wrapper">\MIMAS\Service\Hairdressing\Db\JorumDbModel</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_items" name="property_items" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$items</h3>
+                <pre class="signature">$items : \MIMAS\Service\Hairdressing\Db\MIMAS\Collection</pre>
+                <p><em>MIMAS\Collection $items</em></p>
+                
+
+                                <h4>Type</h4>
+                \MIMAS\Service\Hairdressing\Db\MIMAS\Collection
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html"><div class="path-wrapper">\MIMAS\Service\Hairdressing\Db\JorumDbModel</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_query" name="property_query" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$query</h3>
+                <pre class="signature">$query : string</pre>
+                <p><em>Query string</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html"><div class="path-wrapper">\MIMAS\Service\Hairdressing\Db\JorumDbModel</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_queryDateTime" name="property_queryDateTime" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$queryDateTime</h3>
+                <pre class="signature">$queryDateTime : string</pre>
+                <p><em>Query time in a standard format</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html"><div class="path-wrapper">\MIMAS\Service\Hairdressing\Db\JorumDbModel</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_table" name="property_table" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$table</h3>
+                <pre class="signature">$table : string</pre>
+                <p><em>The database table used by the model.</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                            
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct(array <span class="argument">$attributes</span>)</pre>
+                <p><em>Constructor. Check base class</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$attributes </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getQuery" name="method_getQuery" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getQuery()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getQuery() : string</pre>
+                <p><em>Get the QUERY string</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html"><div class="path-wrapper">\MIMAS\Service\Hairdressing\Db\JorumDbModel</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setQuery" name="method_setQuery" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setQuery()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setQuery(mixed <span class="argument">$query</span>)</pre>
+                <p><em>Set the QUERY string</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$query </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html"><div class="path-wrapper">\MIMAS\Service\Hairdressing\Db\JorumDbModel</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getQueryDateTime" name="method_getQueryDateTime" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getQueryDateTime()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getQueryDateTime() : string</pre>
+                <p><em>Get the QUERY string</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                            &mdash; <p>$queryDateTime</p>
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html"><div class="path-wrapper">\MIMAS\Service\Hairdressing\Db\JorumDbModel</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setQueryDateTime" name="method_setQueryDateTime" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setQueryDateTime()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setQueryDateTime(mixed <span class="argument">$queryDateTime</span>)</pre>
+                <p><em>Set the QUERY string</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$queryDateTime </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html"><div class="path-wrapper">\MIMAS\Service\Hairdressing\Db\JorumDbModel</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setClass" name="method_setClass" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setClass()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setClass(string <span class="argument">$class</span>)</pre>
+                <p><em>Sets class variable</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$class </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html"><div class="path-wrapper">\MIMAS\Service\Hairdressing\Db\JorumDbModel</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getClass" name="method_getClass" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getClass()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getClass() : string</pre>
+                <p><em>Gets class var</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html"><div class="path-wrapper">\MIMAS\Service\Hairdressing\Db\JorumDbModel</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setGroupBy" name="method_setGroupBy" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setGroupBy()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setGroupBy(array <span class="argument">$groupBy</span>)</pre>
+                <p><em>Sets groupBy</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$groupBy </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html"><div class="path-wrapper">\MIMAS\Service\Hairdressing\Db\JorumDbModel</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getGroupBy" name="method_getGroupBy" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getGroupBy()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getGroupBy() : array</pre>
+                <p><em>Gets groupBy</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html"><div class="path-wrapper">\MIMAS\Service\Hairdressing\Db\JorumDbModel</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setOrWhere" name="method_setOrWhere" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setOrWhere()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setOrWhere(array <span class="argument">$orWhere</span>)</pre>
+                <p><em>Sets the orWhere array</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$orWhere </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html"><div class="path-wrapper">\MIMAS\Service\Hairdressing\Db\JorumDbModel</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getOrWhere" name="method_getOrWhere" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getOrWhere()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getOrWhere() : array</pre>
+                <p><em>gets the orWhere array</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html"><div class="path-wrapper">\MIMAS\Service\Hairdressing\Db\JorumDbModel</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setOrderBy" name="method_setOrderBy" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setOrderBy()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setOrderBy(array <span class="argument">$orderBy</span>)</pre>
+                <p><em>Sets the orderBy</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$orderBy </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html"><div class="path-wrapper">\MIMAS\Service\Hairdressing\Db\JorumDbModel</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getOrderBy" name="method_getOrderBy" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getOrderBy()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getOrderBy() : array</pre>
+                <p><em>Gets orderBy</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html"><div class="path-wrapper">\MIMAS\Service\Hairdressing\Db\JorumDbModel</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setPrimaryKey" name="method_setPrimaryKey" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setPrimaryKey()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setPrimaryKey(string <span class="argument">$primaryKey</span>)</pre>
+                <p><em>Sets Primary Key</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$primaryKey </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html"><div class="path-wrapper">\MIMAS\Service\Hairdressing\Db\JorumDbModel</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getPrimaryKey" name="method_getPrimaryKey" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getPrimaryKey()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getPrimaryKey() : string</pre>
+                <p><em>Get Primary Key</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html"><div class="path-wrapper">\MIMAS\Service\Hairdressing\Db\JorumDbModel</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setWhere" name="method_setWhere" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setWhere()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setWhere(array <span class="argument">$where</span>)</pre>
+                <p><em>Sets WHERE</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array</td>
+                                <td>$where </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html"><div class="path-wrapper">\MIMAS\Service\Hairdressing\Db\JorumDbModel</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getWhere" name="method_getWhere" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getWhere()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getWhere() : array</pre>
+                <p><em>Gets WHERE</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html"><div class="path-wrapper">\MIMAS\Service\Hairdressing\Db\JorumDbModel</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getInstance" name="method_getInstance" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getInstance()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getInstance(mixed <span class="argument">$data</span>) : mixed</pre>
+                <p><em>Create a new instance of this if it one doesn&#039;t already exist
+Return the instance</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$data </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    mixed
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html"><div class="path-wrapper">\MIMAS\Service\Hairdressing\Db\JorumDbModel</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_where" name="method_where" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">where()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">where(mixed <span class="argument">$column</span>, mixed <span class="argument">$operand</span>, mixed <span class="argument">$value</span>) : mixed</pre>
+                <p><em>Add to the $where array (&#039;id&#039;, &#039;&gt;&#039;, 2000) list of parameters</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$column </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$operand </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$value </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    mixed
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html"><div class="path-wrapper">\MIMAS\Service\Hairdressing\Db\JorumDbModel</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                                                            <p>write Unit Tests</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_orWhere" name="method_orWhere" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">orWhere()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">orWhere(mixed <span class="argument">$column</span>, mixed <span class="argument">$operand</span>, mixed <span class="argument">$value</span>) : mixed</pre>
+                <p><em>Add to the $orWhere list of parameters</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$column </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$operand </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$value </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    mixed
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html"><div class="path-wrapper">\MIMAS\Service\Hairdressing\Db\JorumDbModel</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                                                            <p>write Unit Tests</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_andWhere" name="method_andWhere" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">andWhere()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">andWhere(mixed <span class="argument">$column</span>, mixed <span class="argument">$operand</span>, mixed <span class="argument">$value</span>) : mixed</pre>
+                <p><em>Add to the $where array (&#039;title&#039;, &#039;like&#039;, &#039;Mario&#039;)</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$column </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$operand </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$value </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    mixed
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html"><div class="path-wrapper">\MIMAS\Service\Hairdressing\Db\JorumDbModel</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                                                            <p>write Unit Tests</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_orderBy" name="method_orderBy" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">orderBy()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">orderBy(mixed <span class="argument">$column</span>, string <span class="argument">$direction</span>) : mixed</pre>
+                <p><em>Add to the $orderBy list of parameters</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$column </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$direction </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    mixed
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html"><div class="path-wrapper">\MIMAS\Service\Hairdressing\Db\JorumDbModel</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                                                            <p>write Unit Tests</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_groupBy" name="method_groupBy" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">groupBy()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">groupBy(mixed <span class="argument">$column</span>) : mixed</pre>
+                <p><em>Add to the list of columns to group by</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$column </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    mixed
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html"><div class="path-wrapper">\MIMAS\Service\Hairdressing\Db\JorumDbModel</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                                                            <p>write Unit Tests</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getItems" name="method_getItems" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getItems()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getItems() : \MIMAS\Service\Hairdressing\Db\MIMAS\Collection</pre>
+                <p><em>Get itemlist</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    \MIMAS\Service\Hairdressing\Db\MIMAS\Collection
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html"><div class="path-wrapper">\MIMAS\Service\Hairdressing\Db\JorumDbModel</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_get" name="method_get" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">get()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">get()</pre>
+                <p><em>Construct a suitable SQL statement and pass it to our manager
+Note that we don&#039;t do any pagination or anything here
+PD</em></p>
+                
+
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html"><div class="path-wrapper">\MIMAS\Service\Hairdressing\Db\JorumDbModel</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                                                            <p>inject SQLManager dependency</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_resetQueries" name="method_resetQueries" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">resetQueries()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">resetQueries()</pre>
+                <p><em>Resets the SQL criteria arrays</em></p>
+                
+
+                
+                
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html"><div class="path-wrapper">\MIMAS\Service\Hairdressing\Db\JorumDbModel</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_itemCollection" name="method_itemCollection" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">itemCollection()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">itemCollection() : mixed</pre>
+                <p><em>Remove the single item properites such as vid, nid etc
+so that we can return a clean ItemList</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    mixed
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html"><div class="path-wrapper">\MIMAS\Service\Hairdressing\Db\JorumDbModel</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_find" name="method_find" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">find()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">find(int <span class="argument">$id</span>) : mixed</pre>
+                <p><em>Find a single item by PK</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>int</td>
+                                <td>$id </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    mixed
+                                                </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                    <dt>Inherited from</dt>
+                    <dd><a href="../classes/MIMAS.Service.Hairdressing.Db.JorumDbModel.html"><div class="path-wrapper">\MIMAS\Service\Hairdressing\Db\JorumDbModel</div></a></dd>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr>
+                        <th>
+                            todo
+                        </th>
+                        <td>
+                                                                                            <p>write Unit Tests</p>
+                                                    </td>
+                    </tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">ContentTypeStep.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/Service/Hairdressing/Db/Models/ContentTypeStep.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/MIMAS.html">\MIMAS</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on June 30th, 2014 at 16:01.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>
